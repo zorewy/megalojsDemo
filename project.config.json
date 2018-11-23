@@ -1,16 +1,17 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": false,
 		"postcss": false,
 		"minified": false,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"miniprogramRoot": "dist-wechat/",
 	"compileType": "miniprogram",
-	"appid": "",
-	"projectname": "lotusMinaEshop",
+	"appid": "wx91286dd5582078d7",
+	"projectname": "asd",
 	"scripts": {
 		"beforeCompile": "npm run dev",
 		"beforePreview": "",
@@ -36,8 +37,7 @@
 		},
 		"miniprogram": {
 			"current": 4,
-			"list": [
-			]
+			"list": []
 		}
 	}
 }

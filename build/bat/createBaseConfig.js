@@ -32,7 +32,7 @@ const CSS_EXT = {
   swan: 'css',
 };
 
-function createBaseConfig( platform = 'wechat' , options) {
+function createBaseConfig( platform = 'wechat' ) {
   const cssExt = CSS_EXT[platform]
 
   return {

@@ -1,6 +1,7 @@
 <template>
   <div class="page-index">
     <div class="">列表</div>
+    <div class="">1{{ globalData1.name }}</div>
     <div class="view-list">
       <a class="view-list-item view-list-arrow view-list-line"
          v-for="(item, index) in list"
@@ -9,20 +10,21 @@
         {{ item.text }}
       </a>
     </div>
+    <div class="" v-html="testHmtl"></div>
     <HelloDemo />
   </div>
 </template>
 
 <script>
+import mixins from '../../mixins'
 import HelloDemo from '@/components/HelloDemo'
 export default {
   mpType: 'page',
+  mixins: [mixins],
   data() {
     return {
-      globalData: [
-        { name: '21311111111111' },
-        { name: '25111' }
-      ],
+      testHmtl: '<div class="">列111表</div>',
+      globalData1: { name: '21311111111111' },
       list: [
         {
           link: '../../packageOrder/pages/goods/index',
@@ -47,17 +49,34 @@ export default {
     console.log('created')
     // 获取 onLoad 中的 options
     let appInstance = getApp()
-
-    this.globalData = appInstance.globalData
-    console.log('asfd', this.globalData.a)
-    wx.setTabBarBadge({
-      index: 0,
-      text: `${this.globalData.a}`
+    this.GET('api/home/index', res => {
+      console.log(res)
     })
+    this.globalData = appInstance.globalData
+    console.log('asfd1', this.globalData.a)
     console.log(this)
   },
+  beforeMount() {
+    console.log('beforeMount=======')
+  },
+  onShow() {
+    // console.log(platform)
+    console.log('api')
+    console.log('onShow======')
+  },
   mounted() {
-    console.log('mounted')
+    console.log('mounted=======')
+    console.log(this.globalData)
+  },
+  beforeDestroy() {
+    console.log('beforeDestroy=======')
+  },
+
+  destroyed() {
+    console.log('destroyed========')
+  },
+  onUnload() {
+    console.log('onUnload======')
   },
   onPullDownRefresh() {
     //

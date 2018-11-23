@@ -591,6 +591,18 @@ export default {
   mounted() {
     console.log('mounted')
   },
+  beforeDestroy() {
+    console.log('beforeDestroy--------')
+  },
+  onShow() {
+    console.log('onShow--------')
+  },
+  destroyed() {
+    console.log('destroyed--------')
+  },
+  onUnload() {
+    console.log('onUnload--------')
+  },
   onPullDownRefresh() {
     //
     this.stopPullDownRefresh()

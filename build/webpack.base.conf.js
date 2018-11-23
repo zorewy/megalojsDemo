@@ -8,17 +8,17 @@ const glob = require('glob')
 const path = require('path')
 
 function resolve(dir) {
-	return path.join(__dirname, '..', dir)
+  return path.join(__dirname, '..', dir)
 }
 
 function getEntry(rootSrc, pattern) {
-	let files = glob.sync(path.resolve(rootSrc, pattern))
-	return files.reduce((res, file) => {
-		const info = path.parse(file)
-		const key = info.dir.slice(rootSrc.length + 1) + '/' + info.name
-		res[key] = path.resolve(file)
-		return res
-	}, {})
+  let files = glob.sync(path.resolve(rootSrc, pattern))
+  return files.reduce((res, file) => {
+    const info = path.parse(file)
+    const key = info.dir.slice(rootSrc.length + 1) + '/' + info.name
+    res[key] = path.resolve(file)
+    return res
+  }, {})
 }
 
 const appEntry = {app: resolve('./src/index.js')}
